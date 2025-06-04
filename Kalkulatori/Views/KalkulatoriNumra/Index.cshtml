@@ -1,0 +1,22 @@
+﻿@model Kalkulatori.Models.KalkulatoriNumra
+
+
+<h1 class="display-4">Kalkulatori per numra</h1>
+<form asp-action="Index" method="post">
+	<div>
+		<label>Shkruaj numrin</label>
+		<input type="int" asp-for="Numri" class="form-control" />
+		<span asp-validation-for="Numri" class="text-danger"></span>
+	</div>
+	
+	<button type="submit" class="btn btn-primary form-control mt-5">Llogarit</button>
+
+</form>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}
+
+
