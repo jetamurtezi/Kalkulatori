@@ -9,12 +9,14 @@ namespace Kalkulatori.Models
         public int Numri { get; set; }
 
         public int Numri500 => Numri / 500;
-        public int Numri200 => Numri / 200;
-        public int Numri100 => Numri / 100;
-        public int Numri50 => Numri / 50;
-        public int Numri20 => Numri / 20;
-        public int Numri10 => Numri / 10;
-        public int Numri5 => Numri / 5;
+        public int Numri200 => (Numri % 500) / 200;
+        public int Numri100 => (Numri % 500 % 200) / 100;
+        public int Numri50 => (Numri % 500 % 200 % 100) / 50;
+        public int Numri20 => (Numri % 500 % 200 % 100 % 50) / 20;
+        public int Numri10 => (Numri % 500 % 200 % 100 % 50 % 20) / 10;
+        public int Numri5 => (Numri % 500 % 200 % 100 % 50 % 20 % 10) / 5;
+
+        public int Mbetja=> Numri % 5;
 
 
         public string Mesazhi =>
@@ -26,6 +28,7 @@ namespace Kalkulatori.Models
             $"{Numri50} x 50she,\n " +
             $"{Numri20} x 20she, \n" +
             $"{Numri10} x 10she, \n" +
-            $"{Numri5} x 5she ";
+            $"{Numri5} x 5she \n" +
+            (Mbetja > 0 ? $"Edhe te mbet nje : {Mbetja}she" : "");
     }
 }
