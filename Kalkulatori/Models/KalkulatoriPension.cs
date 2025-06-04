@@ -14,6 +14,7 @@ namespace Kalkulatori.Models
         public string Mbiemri { get; set; }
 
         [Required]
+        [Range(typeof(DateTime), "01/01/1920", "01/01/2025", ErrorMessage = "Data duhet te jete mes viteve 1920 dhe 2025")]
         [DisplayName("Data e lindjes")]
         public DateTime DataELindjes { get; set; }
 
